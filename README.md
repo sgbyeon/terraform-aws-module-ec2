@@ -1,4 +1,4 @@
-# AWS VPC Terraform custom module
+# AWS private EC2 Terraform custom module
 * AWS 에서 private EC2를 생성하는 기본 모듈
 * public은 지원하지 않음
 
