@@ -47,7 +47,6 @@ module "bastion" {
   ec2_ingress_sg_rule = var.ec2_ingress_sg_rule
   tags = var.tags
 }
-}
 ```
 ---
 ### `data.tf`
