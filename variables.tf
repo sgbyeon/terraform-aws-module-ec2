@@ -27,6 +27,12 @@ variable "instance_type" {
   default = ""
 }
 
+variable "key_name" {
+  description = "Key Name to use for ec2 instance"
+  type = string
+  default = ""
+}
+
 variable "volume_type" {
   description = "The type of volume. (gp2, io1, io2, standard)"
   type = string
