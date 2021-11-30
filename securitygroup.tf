@@ -19,6 +19,6 @@ resource "aws_security_group_rule" "this" {
   from_port = 22
   to_port = 22
   protocol = "tcp"
-  cidr_blocks = var.ec2_ingress_sg_rule
+  cidr_blocks = var.sg_ingress_rule
   security_group_id = aws_security_group.this.id
 }

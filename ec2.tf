@@ -22,3 +22,7 @@ resource "aws_network_interface" "this" {
 
   tags = merge(var.tags, tomap({Name = format("%s-nic", var.ec2_name)}))
 }
+
+resource "aws_ebs_encryption_by_default" "this" {
+  enabled = true
+}

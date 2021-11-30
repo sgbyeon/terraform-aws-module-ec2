@@ -1,16 +1,16 @@
-variable "region" {
-  description = "AWS Region"
-  type = string
-  default = ""
-}
-
 variable "account_id" {
   description = "List of Allowed AWS account IDs"
   type = list(string)
   default = [""]
 }
 
-variable "ec2_name" {
+variable "region" {
+  description = "AWS Region"
+  type = string
+  default = ""
+}
+
+variable "instance_name" {
   description = "EC2 instance name"
   type = string
 }

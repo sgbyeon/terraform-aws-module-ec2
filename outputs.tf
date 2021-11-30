@@ -1,9 +1,19 @@
-output "id" {
-  description = "EC2 instance ID"
-  value = aws_instance.this.id
+output "account_id" {
+  description = "AWS Account ID"
+  value = var.account_id
 }
 
-output "type" {
+output "vpc_id" {
+  description = "VPC ID"
+  value = var.vpc_id
+}
+
+output "instance_name" {
+  description = "EC2 instance ID"
+  value = var.instance_name
+}
+
+output "instance_type" {
   description = "EC2 instance type"
   value = aws_instance.this.instance_type
 }
