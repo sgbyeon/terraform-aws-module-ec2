@@ -1,3 +1,8 @@
+resource "aws_eip" "this" {
+  vpc = true
+  tags = merge(var.tags, tomap({Name = format("%s-eip", var.instance_name)}))
+}
+
 resource "aws_instance" "this" {
   ami = var.ami_id
   instance_type = var.instance_type
@@ -13,7 +18,20 @@ resource "aws_instance" "this" {
     volume_size = var.volume_size
   }
 
+  depends_on = [
+    aws_eip.this
+  ]
+
   tags = merge(var.tags, tomap({Name = format("%s", var.instance_name)}))
+}
+
+resource "aws_eip_association" "this" {
+  instance_id = aws_instance.this.id
+  allocation_id = aws_eip.this.id
+
+  depends_on = [
+    aws_instance.this
+  ]
 }
 
 resource "aws_network_interface" "this" {
