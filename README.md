@@ -27,7 +27,7 @@ subnet_filters = {
 }
 
 # ec2 에 SSH 접속을 위한 sg rule
-sg_ingress_rule = [ "221.148.35.240/32" ] # office
+sg_ingress_rule = [ "111.111.111.111/32" ] # 접속 허용 IP
 
 # 공통 tag, 생성되는 모든 리소스에 태깅
 tags = {
