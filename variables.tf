@@ -38,8 +38,8 @@ variable "volume_size" {
   type = number
 }
 
-variable "ec2_ingress_sg_rule" {
-  description = "Ingress Security Group rule for Bastion"
+variable "sg_ingress_rule" {
+  description = "Ingress Security Group rule"
   type        = list(string)
   default     = []
 }
