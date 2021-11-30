@@ -1,6 +1,7 @@
 resource "aws_instance" "this" {
   ami = var.ami_id
   instance_type = var.instance_type
+  key_name = var.key_name
 
   network_interface {
     network_interface_id = aws_network_interface.this.id
