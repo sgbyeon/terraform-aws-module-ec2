@@ -24,6 +24,7 @@ resource "aws_network_interface" "this" {
   tags = merge(var.tags, tomap({Name = format("%s-nic", var.instance_name)}))
 }
 
+# ebs는 kms 기본키로 암호화, 선택아닌 필수
 resource "aws_ebs_encryption_by_default" "this" {
   enabled = true
 }
