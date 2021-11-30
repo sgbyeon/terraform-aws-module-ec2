@@ -12,15 +12,15 @@ resource "aws_instance" "this" {
     volume_size = var.volume_size
   }
 
-  tags = merge(var.tags, tomap({Name = format("%s", var.ec2_name)}))
+  tags = merge(var.tags, tomap({Name = format("%s", var.instance_name)}))
 }
 
 resource "aws_network_interface" "this" {
-  description = "NIC eth0 for ${var.ec2_name}"
+  description = "NIC eth0 for ${var.instance_name}"
   subnet_id = var.subnet_id
   security_groups = [aws_security_group.this.id]
 
-  tags = merge(var.tags, tomap({Name = format("%s-nic", var.ec2_name)}))
+  tags = merge(var.tags, tomap({Name = format("%s-nic", var.instance_name)}))
 }
 
 resource "aws_ebs_encryption_by_default" "this" {
