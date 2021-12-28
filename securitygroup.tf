@@ -1,5 +1,5 @@
 resource "aws_security_group" "this" {
-  name = "${var.instance_name}-sg"
+  name = "${var.instance_name}.security-group"
   description = "${var.instance_name} security group"
   vpc_id = var.vpc_id
 
@@ -10,7 +10,7 @@ resource "aws_security_group" "this" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(var.tags, tomap({Name = format("%s-sg", var.instance_name)}))
+  tags = merge(var.tags, tomap({Name = format("%s.security-groups", var.instance_name)}))
 }
 
 resource "aws_security_group_rule" "this" {

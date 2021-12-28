@@ -1,6 +1,6 @@
 resource "aws_eip" "this" {
   vpc = true
-  tags = merge(var.tags, tomap({Name = format("%s-eip", var.instance_name)}))
+  tags = merge(var.tags, tomap({Name = format("%s.eip", var.instance_name)}))
 }
 
 resource "aws_instance" "this" {
@@ -39,7 +39,7 @@ resource "aws_network_interface" "this" {
   subnet_id = var.subnet_id
   security_groups = [aws_security_group.this.id]
 
-  tags = merge(var.tags, tomap({Name = format("%s-nic", var.instance_name)}))
+  tags = merge(var.tags, tomap({Name = format("%s.nic", var.instance_name)}))
 }
 
 # ebs는 kms 기본키로 암호화, 선택아닌 필수
